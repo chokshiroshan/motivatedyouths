@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <!-- Page Header -->
+  {% if thor.background %}
+  <header class="masthead" style="background-image: url('{{ thor.background.url }}')">
+  {% else %}
+  <header class="masthead" style="background-image: url({% static 'img/post-bg.jpg' %})">
+  {% endif %}
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>{{thor.title}}</h1>
+            <span class="meta">Posted by
+              <a href="https://www.instagram.com/chokshiroshan">{{thor.author}}</a>
+              on August 24, 2019</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+        <h2 class="subheading">{{thor.subtitle}}</h2>
+        <img class="img-fluid" src="{{ thor.image1.url }}">
+        <p>{{thor.text}}</p>
+        <h2 class="subheading">{{thor.secondtitle}}</h2>
+        <img class="img-fluid" src="{{ thor.image2.url }}">
+        <p>{{thor.secondtext}}</p>
+        <h2 class="subheading">{{thor.thirdtitle}}</h2>
+        <img class="img-fluid" src="{{ thor.image3.url }}">
+        <p>{{thor.thirdtext}}</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+{% endblock content %}

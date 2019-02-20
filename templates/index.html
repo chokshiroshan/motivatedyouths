@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({% static 'img/1.jpeg' %})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Motivated Youths</h1>
+            <span class="subheading">Community Of Luminary Youths </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% for art in object_list %}
+        <div class="post-preview">
+          <a href="{% url 'article_page' art.pk %}">
+            <h2 class="post-title">
+            {{art.title}}
+            </h2>
+            <h3 class="post-subtitle">
+            {{art.subtitle}}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="https://www.instagram.com/chokshiroshan">{{art.author}}</a>
+            on {{art.date_time.date}}</p>
+        </div>
+        <hr>
+        {% endfor %}
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+{% endblock content %}
