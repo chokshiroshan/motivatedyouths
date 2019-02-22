@@ -1,1 +1,1 @@
-web: gunicorn motivatedyouths02.wsgi --log-file -
+web: gunicorn motivatedyouths.wsgi --log-file -
